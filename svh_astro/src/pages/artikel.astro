@@ -1,0 +1,21 @@
+---
+// src/pages/artikel.astro
+// Dynamically rendered article view - content loaded by JS from data.js
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Bericht – SV Hockenheim e.V.">
+<main class="main-wrap">
+  <div class="article-hero" id="articleHero">
+    <div id="articleImgPh" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--navy2)"><span style="font-size:60px;opacity:.2">🏊</span></div>
+    <div class="article-hero-txt">
+      <div class="news-date" id="articleDate"></div>
+      <h1 id="articleTitle"></h1>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:0 auto;padding:40px 32px">
+    <button class="back-btn" onclick="history.back()">← Zurück</button>
+    <div class="article-body" id="articleBody"></div>
+  </div>
+</main>
+
+</Layout>

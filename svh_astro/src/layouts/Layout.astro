@@ -1,0 +1,72 @@
+---
+// src/layouts/Layout.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title?: string;
+}
+const { title = 'SV Hockenheim e.V.' } = Astro.props;
+const base = '/Vereinswebseite';
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0,viewport-fit=cover"/>
+  <title>{title} – SV Hockenheim e.V.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href={`${base}/styles/global.css`}/>
+</head>
+<body>
+
+<Header />
+
+<main>
+  <slot />
+</main>
+
+<Footer />
+
+<!-- Globale Modals (werden von JS benötigt) -->
+<div id="cropModal">
+  <div style="font-size:14px;color:rgba(255,255,255,.8);text-align:center;margin-bottom:8px">
+    Bild zuschneiden – Bereich wählen und <strong>Zuschneiden</strong> klicken
+  </div>
+  <div class="crop-container">
+    <canvas id="cropCanvas"></canvas>
+    <canvas id="cropSelection" style="position:absolute;inset:0;pointer-events:none"></canvas>
+  </div>
+  <div class="crop-hint">Klicken und ziehen · Ohne Auswahl = Original</div>
+  <div class="crop-controls">
+    <button class="crop-btn primary" onclick="cropConfirm()">✂ Zuschneiden &amp; verwenden</button>
+    <button class="crop-btn secondary" onclick="cropUseOriginal()">Ohne Zuschnitt</button>
+    <button class="crop-btn danger" onclick="cropCancel()">Abbrechen</button>
+  </div>
+</div>
+
+<div class="overlay" id="loginOverlay">
+  <div class="overlay-card">
+    <h2>Admin Login</h2>
+    <p>Bitte Admin-Passwort eingeben.</p>
+    <div class="form-field">
+      <label>Passwort</label>
+      <input type="password" id="pwInput" placeholder="••••••••"/>
+      <div class="form-error" id="pwError" style="display:none">Falsches Passwort.</div>
+    </div>
+    <button class="btn-submit" onclick="checkLogin()">Einloggen</button>
+    <button class="btn-cancel" onclick="closeAdminLogin()">Abbrechen</button>
+  </div>
+</div>
+
+<div id="uploadHint">✓ Bild gespeichert!</div>
+
+<!-- Scripts – Reihenfolge wichtig! -->
+<script is:inline src={`${base}/scripts/content.js`}></script>
+<script is:inline src={`${base}/scripts/carousel.js`}></script>
+<script is:inline src={`${base}/scripts/navigation.js`}></script>
+<script is:inline src={`${base}/scripts/admin-tools.js`}></script>
+<script is:inline src={`${base}/scripts/main.js`}></script>
+
+</body>
+</html>

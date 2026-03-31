@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "svh-astro",
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\justn\\Documents\\Schwimmverein_webseite\\svh_astro"],
+      "port": 4321
+    }
+  ]
+}

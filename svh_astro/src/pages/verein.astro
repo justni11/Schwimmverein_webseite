@@ -1,0 +1,29 @@
+---
+// src/pages/verein.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Der Verein – SV Hockenheim e.V.">
+
+<main class="main-wrap">
+  <div class="breadcrumb"><a href="/Vereinswebseite/">Home</a><span class="sep">/</span>Der Verein</div>
+  <div class="section-head">
+    <div class="section-tag">Über uns</div>
+    <h2>Der Schwimmverein Hockenheim</h2>
+  </div>
+  <div class="white-card" style="max-width:780px;font-size:15px;line-height:1.85;color:var(--text2)">
+    <p style="margin-bottom:14px">Der Schwimmverein Hockenheim e.V. wurde am <strong style="color:var(--text)">16.06.1967</strong> mit 31 Mitgliedern gegründet. Zum heutigen Zeitpunkt zählen wir über 330 Mitglieder.</p>
+    <p style="margin-bottom:14px">In der Zwischenzeit konnten Schwimmer/innen des Schwimmvereins Hockenheim beachtliche Platzierungen und Meistertitel bei Kreis-, Bezirks-, Badischen Jahrgangs- und Baden-Württembergischen Master-Meisterschaften erzielen.</p>
+    <p style="margin-bottom:14px">Der Schwimmverein Hockenheim ist heute in der Lage, für verschiedene Trainingsgruppen ein Training im Aquadrom und/oder im Lehrschwimmbecken der Stadt Hockenheim anzubieten. Die Unterstützung der leistungsorientierten Ziele der Schwimmer steht dabei im Mittelpunkt.</p>
+    <p style="margin-bottom:14px">Der SVH sieht sich als wettbewerbsorientierten Verein, der aber auch Wert auf Gemeinschaft, Spaß und Zusammenhalt legt. Neben dem sportlichen Programm gehören Events wie Wandertage, Zeltlager und die alljährliche Vereinsfeier zum festen Bestandteil des Vereinslebens.</p>
+    <p style="margin-bottom:24px">Der Verein ist Mitglied im <strong style="color:var(--text)">Badischen Schwimm-Verband e.V. (BSV)</strong> und im <strong style="color:var(--text)">Deutschen Schwimm-Verband e.V. (DSV)</strong>.</p>
+    <a href="https://svhockenheim.de/fileadmin/Unterlagen/Aufnahmeantrag_SVH_Version_20200417_interaktiv_DSGVO.pdf" target="_blank" class="btn-primary" style="display:inline-block">Aufnahmeantrag downloaden ↗</a>
+  </div>
+  <div class="wk-cards" style="margin-top:32px">
+    <div class="wk-card" onclick="location.href='/Vereinswebseite/vorstandschaft'"><div class="wk-icon">👥</div><h3>Vorstandschaft</h3><p>Der Vorstand des SVH</p></div>
+    <div class="wk-card" onclick="location.href='/Vereinswebseite/historie'"><div class="wk-icon">📜</div><h3>Historie</h3><p>Unsere Geschichte seit 1967</p></div>
+    <div class="wk-card" onclick="location.href='/Vereinswebseite/termine'"><div class="wk-icon">📅</div><h3>Termine</h3><p>Veranstaltungen & Wettkämpfe</p></div>
+    <div class="wk-card" onclick="location.href='/Vereinswebseite/beitragsordnung'"><div class="wk-icon">💶</div><h3>Beitragsordnung</h3><p>Mitgliedsbeiträge & Gebühren</p></div>
+    <div class="wk-card" onclick="location.href='/Vereinswebseite/jugendordnung'"><div class="wk-icon">📋</div><h3>Jugendordnung</h3><p>Satzung der Jugendabteilung</p></div>
+  </div>
+</main>
+</Layout>

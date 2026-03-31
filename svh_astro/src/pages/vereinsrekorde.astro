@@ -1,0 +1,26 @@
+---
+// src/pages/vereinsrekorde.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Vereinsrekorde – SV Hockenheim e.V.">
+<main class="main-wrap">
+  <div class="breadcrumb"><a href="/Vereinswebseite/">Home</a><span class="sep">/</span><a href="/Vereinswebseite/wettkampf">Wettkampf</a><span class="sep">/</span>Vereinsrekorde</div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span class="sep">/</span><a onclick="showPage('wettkampf')">Wettkampf</a><span class="sep">/</span>Vereinsrekorde</div>
+    <div class="section-head"><div class="section-tag">Bestzeiten</div><h2>Vereinsrekorde <span style="font-size:18px;font-weight:400;color:var(--text2)">Stand: 05.07.2025</span></h2></div>
+    <div class="rekord-wrap">
+      <div class="rekord-head">Lange Bahn (50m)</div>
+      <table class="rekord-table">
+        <thead><tr><th>Männer</th><th>Jg.</th><th>Zeit</th><th>Datum</th><th>Disziplin</th><th>Datum</th><th>Zeit</th><th>Jg.</th><th>Frauen</th></tr></thead>
+        <tbody id="rekord-page-lang"></tbody>
+      </table>
+    </div>
+    <div class="rekord-wrap">
+      <div class="rekord-head">Kurze Bahn (25m)</div>
+      <table class="rekord-table">
+        <thead><tr><th>Männer</th><th>Jg.</th><th>Zeit</th><th>Datum</th><th>Disziplin</th><th>Datum</th><th>Zeit</th><th>Jg.</th><th>Frauen</th></tr></thead>
+        <tbody id="rekord-page-kurz"></tbody>
+      </table>
+    </div>
+  
+</main>
+</Layout>

@@ -1,0 +1,52 @@
+---
+// src/pages/trainingszeiten.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Trainingszeiten – SV Hockenheim e.V.">
+<main class="main-wrap">
+  <div class="breadcrumb"><a href="/Vereinswebseite/">Home</a><span class="sep">/</span><a href="/Vereinswebseite/training">Training</a><span class="sep">/</span>Trainingszeiten</div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span class="sep">/</span><a onclick="showPage('training')">Training</a><span class="sep">/</span>Trainingszeiten</div>
+    <div class="section-head"><div class="section-tag">Zeiten</div><h2>Trainingszeiten</h2></div>
+    <div class="tz-grid">
+      <div class="tz-card"><h3>Montag</h3>
+        <div class="tz-section-lbl">Aquadrom</div>
+        <div class="tz-row"><span class="tz-time">16:45–18:00</span><span class="tz-group">Nachwuchs WK</span></div>
+        <div class="tz-row"><span class="tz-time">17:15–19:00</span><span class="tz-group">Wettkampfjugend 2</span></div>
+        <div class="tz-row"><span class="tz-time">17:45–19:30</span><span class="tz-group">Wettkampfjugend 1</span></div>
+        <div class="tz-row"><span class="tz-time">18:45–20:30</span><span class="tz-group">Masters 1</span></div>
+        <div class="tz-row"><span class="tz-time">19:15–20:30</span><span class="tz-group">Masters 2</span></div>
+        <div class="tz-section-lbl">Lehrschwimmbecken</div>
+        <div class="tz-row"><span class="tz-time">17:15–18:30</span><span class="tz-group">Grundlagen</span></div>
+        <div class="tz-row"><span class="tz-time">18:15–19:30</span><span class="tz-group">Aufbaugruppe</span></div>
+      </div>
+      <div class="tz-card"><h3>Dienstag</h3>
+        <div class="tz-section-lbl">Aquadrom <em style="font-size:10px;color:#e03e3e">(aktuell pausiert)</em></div>
+        <div class="tz-row"><span class="tz-time">17:15–18:30</span><span class="tz-group">Nachwuchsteam</span></div>
+        <div class="tz-row"><span class="tz-time">18:15–20:00</span><span class="tz-group">WK / Breitensport</span></div>
+      </div>
+      <div class="tz-card"><h3>Mittwoch</h3>
+        <div class="tz-section-lbl">Aquadrom</div>
+        <div class="tz-row"><span class="tz-time">17:15–19:00</span><span class="tz-group">Wettkampfjugend</span></div>
+        <div class="tz-row"><span class="tz-time">18:45–20:30</span><span class="tz-group">WK Masters</span></div>
+      </div>
+      <div class="tz-card"><h3>Donnerstag</h3>
+        <div class="tz-section-lbl">Aquadrom</div>
+        <div class="tz-row"><span class="tz-time">17:15–18:30</span><span class="tz-group">Grundlagen 2</span></div>
+        <div class="tz-row"><span class="tz-time">18:15–19:30</span><span class="tz-group">Nachwuchsteam WK</span></div>
+        <div class="tz-row"><span class="tz-time">19:15–20:30</span><span class="tz-group">WK / Masters</span></div>
+        <div class="tz-section-lbl">Lehrschwimmbecken</div>
+        <div class="tz-row"><span class="tz-time">17:15–18:30</span><span class="tz-group">Grundlagen</span></div>
+        <div class="tz-row"><span class="tz-time">18:15–19:30</span><span class="tz-group">Grundlagen</span></div>
+      </div>
+      <div class="tz-card"><h3>Freitag</h3>
+        <div class="tz-section-lbl">Aquadrom</div>
+        <div class="tz-row"><span class="tz-time">17:15–18:30</span><span class="tz-group">Nachwuchsteam</span></div>
+        <div class="tz-row"><span class="tz-time">18:15–19:30</span><span class="tz-group">Anfängermasters</span></div>
+        <div class="tz-section-lbl">Lehrschwimmbecken</div>
+        <div class="tz-row"><span class="tz-time">17:30–18:45</span><span class="tz-group">Grundlagen</span></div>
+        <div class="tz-row"><span class="tz-time">18:30–19:45</span><span class="tz-group">Grundlagen / NT</span></div>
+      </div>
+    </div>
+  
+</main>
+</Layout>

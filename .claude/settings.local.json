@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /tmp)",
+      "Bash(unzip -o \"C:/Users/justn/Downloads/Schwimmverein_webseite_astro.zip\" -d astro_extract)",
+      "Bash(npm install:*)",
+      "Bash(cmd.exe /c \"node --version && npm --version\")",
+      "Bash(cmd.exe /c \"where node 2>&1 & where npm 2>&1\")",
+      "Bash(cmd.exe /c \"node -v\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(powershell.exe -Command \"node --version; npm --version\")",
+      "Bash(powershell.exe -Command \"Get-Command node -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Read(//c/Program Files/nodejs/**)",
+      "Read(//c/Users/justn/AppData/Roaming/**)",
+      "Bash(\"/c/Program Files/nodejs/npm.cmd\" install --prefix \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro\")",
+      "Bash(\"/c/Program Files/nodejs/npm.cmd\" run build --prefix \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro\")",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s \"http://localhost:4322/Vereinswebseite/\")",
+      "Bash(curl -s \"http://localhost:4322/Vereinswebseite/scripts/navigation.js\")",
+      "Read(//tmp/**)",
+      "Bash(node --check \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/public/scripts/content.js\")",
+      "Bash(node --check \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/public/scripts/navigation.js\")",
+      "Bash(node --check \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/public/scripts/main.js\")"
+    ]
+  }
+}

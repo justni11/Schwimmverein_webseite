@@ -1,0 +1,35 @@
+---
+// src/pages/trainingsstaetten.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Trainingsstätten – SV Hockenheim e.V.">
+<main class="main-wrap">
+  <div class="breadcrumb"><a href="/Vereinswebseite/">Home</a><span class="sep">/</span><a href="/Vereinswebseite/training">Training</a><span class="sep">/</span>Trainingsstätten</div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span class="sep">/</span><a onclick="showPage('training')">Training</a><span class="sep">/</span>Trainingsstätten</div>
+    <div class="section-head"><div class="section-tag">Stätten</div><h2>Unsere Trainingsstätten</h2></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div class="white-card" style="padding:0;overflow:hidden">
+        <div style="aspect-ratio:16/9;background:var(--card2);position:relative;display:flex;align-items:center;justify-content:center">
+          <span style="font-size:40px">🏊</span>
+        </div>
+        <div style="padding:24px">
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text);margin-bottom:10px">Sportbecken Aquadrom</h3>
+          <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:8px">Das Aquadrom Hockenheim ist unsere Haupttrainingsstätte für alle Wettkampfschwimmer, Jugendgruppen und Masters. Das Sportbecken bietet ideale Bedingungen für intensives Training.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Heidelberger Str. 79 · 68766 Hockenheim</p>
+          <a href="https://www.aquadrom.de" target="_blank" style="color:var(--blue2);font-size:13px;font-weight:600">aquadrom.de ↗</a>
+        </div>
+      </div>
+      <div class="white-card" style="padding:0;overflow:hidden">
+        <div style="aspect-ratio:16/9;background:var(--card2);position:relative;display:flex;align-items:center;justify-content:center">
+          <span style="font-size:40px">🏫</span>
+        </div>
+        <div style="padding:24px">
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text);margin-bottom:10px">Lehrschwimmbecken</h3>
+          <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:8px">Das Lehrschwimmbecken der Stadt Hockenheim wird für Grundlagengruppen, Schwimmkurse und Nachwuchsgruppen genutzt. Das kleinere Becken eignet sich besonders für Kinder und Anfänger.</p>
+          <p style="font-size:13px;color:var(--muted)">Schubertstraße 17 · 68766 Hockenheim</p>
+        </div>
+      </div>
+    </div>
+  
+</main>
+</Layout>

@@ -1,0 +1,20 @@
+---
+// src/pages/wettkampf.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Wettkampf – SV Hockenheim e.V.">
+<main class="main-wrap">
+  <div class="breadcrumb"><a href="/Vereinswebseite/">Home</a><span class="sep">/</span>Wettkampf</div>
+    <div class="section-head"><div class="section-tag">Sport</div><h2>Wettkampf</h2></div>
+    <div class="white-card" style="max-width:780px;margin-bottom:32px">
+      <p style="font-size:15px;line-height:1.85;color:var(--text2);margin-bottom:14px">Der Schwimmverein Hockenheim nimmt regelmäßig an Wettkämpfen auf Kreis-, Bezirks- und Landesebene teil. Unsere Wettkampfschwimmer trainieren in speziellen Leistungsgruppen und werden von erfahrenen Trainern gezielt auf Wettkämpfe vorbereitet.</p>
+      <p style="font-size:15px;line-height:1.85;color:var(--text2)">Von lokalen Kreismeisterschaften bis zu badischen und deutschen Meisterschaften – der SVH ist auf vielen Ebenen vertreten. Unsere Masters-Schwimmer nehmen zudem an nationalen und internationalen Mastersveranstaltungen teil.</p>
+    </div>
+    <div class="wk-cards">
+      <div class="wk-card" onclick="showPage('trainingszeiten')"><div class="wk-icon">⏱</div><h3>Trainingszeiten</h3><p>Zeiten unserer Wettkampfschwimmer</p></div>
+      <div class="wk-card" onclick="showPage('vereinsrekorde')"><div class="wk-icon">🏆</div><h3>Vereinsrekorde</h3><p>Die schnellsten Zeiten des SVH</p></div>
+      <div class="wk-card" onclick="showPage('news')"><div class="wk-icon">📰</div><h3>Wettkampfberichte</h3><p>Aktuelle Berichte von Wettkämpfen</p></div>
+    </div>
+  
+</main>
+</Layout>

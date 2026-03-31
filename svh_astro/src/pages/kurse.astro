@@ -1,0 +1,78 @@
+---
+// src/pages/kurse.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Schwimmkurse – SV Hockenheim e.V.">
+<main class="main-wrap">
+  <div class="breadcrumb"><a href="/Vereinswebseite/">Home</a><span class="sep">/</span>Schwimmkurse</div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span class="sep">/</span>Schwimmkurse</div>
+    <div class="section-head"><div class="section-tag">Kursangebot</div><h2>Schwimmkurse in Hockenheim</h2></div>
+
+    <div class="white-card" style="max-width:820px;margin-bottom:24px">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--text);margin-bottom:16px">Unser Konzept</h3>
+      <p style="font-size:15px;line-height:1.85;color:var(--text2);margin-bottom:14px">Seit Januar 2017 bieten wir neue Schwimmkurse für alle Kinder ab fünf Jahren an. Wir haben ein neues Konzept eingeführt, welches individuell auf jedes Kind abgestimmt ist und mit dem wir euch noch gezielter fördern können.</p>
+      <p style="font-size:15px;line-height:1.85;color:var(--text2);margin-bottom:14px">Die Kurse finden in <strong style="color:var(--text)">Kleingruppen von maximal 6 Kindern</strong> statt, damit jedes Kind die Aufmerksamkeit bekommt, die es braucht. Unsere Kurstrainer sind alle ausgebildete Schwimmtrainer und haben Erfahrung im Umgang mit Kindern.</p>
+      <p style="font-size:15px;line-height:1.85;color:var(--text2);margin-bottom:20px">Die Kurse beginnen ab dem Grundschulalter (ca. 5–6 Jahre). Voraussetzung ist, dass das Kind selbstständig ins Wasser geht und keine Angst vor Wasser hat. Wir bieten <strong style="color:var(--text)">5 verschiedene Kursstufen (GL1–GL5)</strong> an, die aufeinander aufbauen.</p>
+      <div class="quote-card">"Wir möchten uns herzlich für die tolle und kompetente Betreuung bedanken. Einfach super wie sie die Kurse gestalten!"</div>
+      <div class="quote-card">"Samuel hat sehr viel gelernt und ist super traurig, dass es vorerst nicht weitergeht."</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin-bottom:24px">
+      <div class="white-card" style="margin-bottom:0">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--text);margin-bottom:14px">📅 Kurszeiten</h3>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border2)"><span style="color:var(--text2)">Mittwoch</span><span style="color:var(--text);font-weight:600">15:00–17:30 Uhr</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border2)"><span style="color:var(--text2)">Freitag</span><span style="color:var(--text);font-weight:600">ab 14:00 Uhr</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0"><span style="color:var(--text2)">Samstag</span><span style="color:var(--text);font-weight:600">ab 09:00 Uhr</span></div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:12px">Lehrschwimmbecken · Schubertstraße 17 · 68766 Hockenheim</p>
+      </div>
+      <div class="white-card" style="margin-bottom:0">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--text);margin-bottom:14px">💶 Kosten & Buchung</h3>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);line-height:1;margin-bottom:4px">100 €</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:16px">pro Kurs (ca. 10 Einheiten)</p>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:6px">Bezahlung per Überweisung nach Kursstart.</p>
+        <p style="font-size:13px;color:var(--text2)">Keine Vereinsmitgliedschaft erforderlich.</p>
+      </div>
+    </div>
+
+    <div class="white-card" style="max-width:820px;margin-bottom:24px">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--text);margin-bottom:14px">📊 Kursstufen</h3>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+        <div style="background:rgba(42,128,25,.1);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--accent)">GL 1</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">Wassergewöhnung</div>
+        </div>
+        <div style="background:rgba(42,128,25,.1);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--accent)">GL 2</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">Grundlagen</div>
+        </div>
+        <div style="background:rgba(42,128,25,.1);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--accent)">GL 3</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">Freistil</div>
+        </div>
+        <div style="background:rgba(42,128,25,.1);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--accent)">GL 4</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">Rücken & Brust</div>
+        </div>
+        <div style="background:rgba(42,128,25,.1);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--accent)">GL 5</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">Fortgeschritten</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="white-card" style="max-width:820px">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--text);margin-bottom:14px">📞 Anmeldung & Kontakt</h3>
+      <p style="font-size:14px;color:var(--text2);margin-bottom:8px">Anmeldung über das Online-Formular oder telefonisch bei:</p>
+      <p style="font-size:15px;color:var(--text);font-weight:600;margin-bottom:4px">Tatjana Sturm</p>
+      <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Tel: <a href="tel:062053928 03" style="color:var(--blue2)">06205 / 392803</a> (abends 20–21 Uhr)</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://svhockenheim.de/Kurse/KW/" target="_blank" class="btn-primary" style="display:inline-block">Online-Voranmeldung ↗</a>
+        <a onclick="showPage('kurstrainer')" class="btn-ghost" style="display:inline-block;cursor:pointer">Unsere Kurstrainer</a>
+        <a onclick="showPage('einzelstunden')" class="btn-ghost" style="display:inline-block;cursor:pointer">Einzelstunden</a>
+      </div>
+    </div>
+  
+</main>
+</Layout>
