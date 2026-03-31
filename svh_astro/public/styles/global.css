@@ -231,7 +231,7 @@ nav{display:flex;align-items:center;gap:2px}
 .hero-content h1 .accent-line{
   background:linear-gradient(90deg,var(--gold),#ff9c4a);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  display:block;
+  display:block;text-shadow:none;
 }
 .hero-content p{
   font-size:15px;color:rgba(255,255,255,.9);max-width:500px;line-height:1.7;margin-bottom:28px;
