@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "svh-astro",
-      "runtimeExecutable": "C:\\Program Files\\nodejs\\npm.cmd",
-      "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\justn\\Documents\\Schwimmverein_webseite\\svh_astro"],
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
+      "runtimeArgs": ["C:\\Users\\justn\\Documents\\Schwimmverein_webseite\\svh_astro\\node_modules\\astro\\dist\\cli\\index.js", "dev", "--root", "C:\\Users\\justn\\Documents\\Schwimmverein_webseite\\svh_astro"],
       "port": 4321
     }
   ]
