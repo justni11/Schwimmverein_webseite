@@ -22,7 +22,12 @@
       "Read(//tmp/**)",
       "Bash(node --check \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/public/scripts/content.js\")",
       "Bash(node --check \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/public/scripts/navigation.js\")",
-      "Bash(node --check \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/public/scripts/main.js\")"
+      "Bash(node --check \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/public/scripts/main.js\")",
+      "Bash(\"C:/Program Files/nodejs/node.exe\" \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro/node_modules/astro/dist/cli/index.js\" dev --root \"C:/Users/justn/Documents/Schwimmverein_webseite/svh_astro\")",
+      "Bash(curl -s \"http://localhost:4323/Vereinswebseite/\")",
+      "Bash(curl -s \"http://localhost:4323/Vereinswebseite/styles/global.css\")",
+      "Bash(tr '>' '\\\\n')",
+      "Bash(gh pr:*)"
     ]
   }
 }
