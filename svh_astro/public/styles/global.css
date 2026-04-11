@@ -2,23 +2,23 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 /* ── DARK MODE (Standard) ── */
 :root{
-  --navy:#060d07;
-  --navy2:#0c1a0d;
-  --navy3:#102413;
+  --navy:#0b0b0f;
+  --navy2:#111118;
+  --navy3:#17171f;
   --blue:#2a8019;
   --blue2:#38a825;
   --accent:#5ccc44;
   --gold:#e8621a;
   --white:#fff;
-  --bg:#080f09;
-  --bg2:#0c1a0d;
-  --card:#101f12;
-  --card2:#162a18;
-  --text:#ddeede;
-  --text2:#8aad8d;
-  --muted:#4a6e4d;
-  --border:rgba(55,160,38,.15);
-  --border2:rgba(55,160,38,.07);
+  --bg:#0b0b0f;
+  --bg2:#111118;
+  --card:#17171f;
+  --card2:#1e1e28;
+  --text:#e8e8ec;
+  --text2:#9898a8;
+  --muted:#505066;
+  --border:rgba(255,255,255,.1);
+  --border2:rgba(255,255,255,.05);
   --radius:16px;
   --shadow:0 4px 32px rgba(0,0,0,.5);
   --shadow-lg:0 16px 64px rgba(0,0,0,.7);
@@ -29,30 +29,30 @@
 /* ── LIGHT MODE ── */
 @media(prefers-color-scheme:light){
   :root{
-    --navy:#f0faf0;
-    --navy2:#e8f5e9;
-    --navy3:#dceede;
+    --navy:#f5f5f8;
+    --navy2:#eeeeee;
+    --navy3:#e5e5ea;
     --blue:#2a8019;
     --blue2:#38a825;
     --accent:#2a8019;
     --gold:#d4550f;
     --white:#fff;
-    --bg:#f5fbf5;
-    --bg2:#edf7ee;
+    --bg:#f5f5f8;
+    --bg2:#eeeeee;
     --card:#ffffff;
-    --card2:#f0f8f0;
-    --text:#0f2010;
-    --text2:#2a4a2c;
-    --muted:#5a7d5c;
-    --border:rgba(42,128,25,.15);
-    --border2:rgba(42,128,25,.07);
+    --card2:#f8f8fb;
+    --text:#1a1a1a;
+    --text2:#555567;
+    --muted:#888899;
+    --border:rgba(0,0,0,.1);
+    --border2:rgba(0,0,0,.05);
     --shadow:0 4px 24px rgba(0,0,0,.08);
     --shadow-lg:0 12px 48px rgba(0,0,0,.14);
     --glow:0 0 32px rgba(42,128,25,.12);
     color-scheme: light;
-    --header-bg:rgba(245,251,245,.94);
-    --hero-h1:#0f2010;
-    --hero-bg-light:linear-gradient(135deg,#e8f5e9 0%,#f0fdf0 40%,#fff9f0 100%);
+    --header-bg:rgba(245,245,248,.94);
+    --hero-h1:#1a1a1a;
+    --hero-bg-light:linear-gradient(135deg,#f0f0f5 0%,#f8f8fb 40%,#fff9f0 100%);
   }
 }
 
@@ -107,7 +107,7 @@ nav{display:flex;align-items:center;gap:2px}
   padding:7px 12px;border-radius:8px;cursor:pointer;
   transition:.2s;white-space:nowrap;
 }
-.nav-a:hover{color:var(--text);background:rgba(42,128,25,.1)}
+.nav-a:hover{color:var(--text);background:rgba(255,255,255,.07)}
 .nav-a.active{color:var(--accent)}
 .drop{position:relative;z-index:9999}
 .drop .nav-a::after{content:' ▾';font-size:9px;opacity:.5}
@@ -123,7 +123,7 @@ nav{display:flex;align-items:center;gap:2px}
   cursor:pointer;border-bottom:1px solid var(--border2);transition:.15s;
 }
 .drop-menu a:last-child{border-bottom:none}
-.drop-menu a:hover{background:rgba(42,128,25,.1);color:var(--text);padding-left:22px}
+.drop-menu a:hover{background:rgba(255,255,255,.07);color:var(--text);padding-left:22px}
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:.3s}
@@ -142,7 +142,7 @@ nav{display:flex;align-items:center;gap:2px}
   display:flex;align-items:center;justify-content:space-between;
   padding:15px 24px;font-size:15px;font-weight:600;color:var(--text2);cursor:pointer;
 }
-.mob-top:hover{color:var(--text);background:rgba(42,128,25,.06)}
+.mob-top:hover{color:var(--text);background:rgba(255,255,255,.05)}
 .mob-top .arr{transition:.25s;font-size:11px;opacity:.4}
 .mob-top.expanded .arr{transform:rotate(180deg)}
 .mob-sub{display:none;background:rgba(0,0,0,.08)}
@@ -151,7 +151,7 @@ nav{display:flex;align-items:center;gap:2px}
   display:block;padding:11px 24px 11px 40px;font-size:13px;color:var(--text2);
   cursor:pointer;border-bottom:1px solid var(--border2);transition:.15s;
 }
-.mob-sub a:hover{color:var(--blue);background:rgba(42,128,25,.08)}
+.mob-sub a:hover{color:var(--blue);background:rgba(255,255,255,.06)}
 
 /* ── HERO ── */
 .hero{
@@ -168,13 +168,13 @@ nav{display:flex;align-items:center;gap:2px}
 @media(max-width:480px){.hero{padding-bottom:65%}}
 @media(prefers-color-scheme:light){
   .hero-content p{color:var(--text2)}
-  .hero-eyebrow{color:var(--blue);background:rgba(42,128,25,.1);border-color:rgba(42,128,25,.25)}
+  .hero-eyebrow{color:var(--text2);background:rgba(0,0,0,.08);border-color:rgba(0,0,0,.15)}
   .hero-stat .lbl{color:var(--muted)}
-  .hero-stats{border-top-color:rgba(42,128,25,.15)}
+  .hero-stats{border-top-color:rgba(0,0,0,.1)}
   .hero::before{background:radial-gradient(circle,rgba(45,138,30,.2) 0%,rgba(100,200,80,.12) 40%,transparent 70%)}
   .hero::after{background:radial-gradient(circle,rgba(232,98,26,.18) 0%,rgba(255,160,80,.08) 60%,transparent 80%)}
-  .hero-grid{background-image:linear-gradient(rgba(42,128,25,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(42,128,25,.06) 1px,transparent 1px)}
-  .btn-ghost{background:rgba(255,255,255,.7);color:var(--text);border-color:rgba(42,128,25,.2)}
+  .hero-grid{background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px)}
+  .btn-ghost{background:rgba(255,255,255,.7);color:var(--text);border-color:rgba(0,0,0,.15)}
 }
 /* Animated gradient blob */
 .hero::before{
@@ -322,8 +322,8 @@ nav{display:flex;align-items:center;gap:2px}
 .section-head{margin-bottom:40px}
 .section-tag{
   display:inline-flex;align-items:center;gap:6px;
-  background:rgba(42,128,25,.1);border:1px solid rgba(42,128,25,.2);
-  color:var(--blue);font-size:11px;font-weight:600;letter-spacing:.12em;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:var(--text2);font-size:11px;font-weight:600;letter-spacing:.12em;
   text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:14px;
 }
 .section-head h2{
