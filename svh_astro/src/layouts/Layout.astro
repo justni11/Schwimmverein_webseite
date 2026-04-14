@@ -22,6 +22,60 @@ const base = '/Schwimmverein_webseite';
 
 <Header />
 
+<!-- Mobile Drawer (für alle Seiten) -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="mob-item"><div class="mob-top" onclick="if(typeof mobNav!=='undefined'){mobNav('home')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Home</div></div>
+  <div class="mob-item">
+    <div class="mob-top" onclick="toggleMobSub('msub-news')">News <span class="arr">▾</span></div>
+    <div class="mob-sub" id="msub-news">
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('news')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Alle Berichte</a>
+      <a onclick="if(typeof mobArticle!=='undefined'){mobArticle('dossenheim2026')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Dossenheim 2026</a>
+      <a onclick="if(typeof mobArticle!=='undefined'){mobArticle('hoggicup2026')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Hoggi Cup 2026</a>
+      <a onclick="if(typeof mobArticle!=='undefined'){mobArticle('heddesheim2026')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Heddesheim 2026</a>
+      <a onclick="if(typeof mobArticle!=='undefined'){mobArticle('bruehlmasters2026')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Masters Brühl 2026</a>
+      <a onclick="if(typeof mobArticle!=='undefined'){mobArticle('vereinsfeier2025')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Vereinsfeier 2025</a>
+      <a onclick="if(typeof mobArticle!=='undefined'){mobArticle('neptuncup2025')}else{location.href='/Schwimmverein_webseite/';closeMobileMenu()}">Neptun Cup 2025</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <div class="mob-top" onclick="toggleMobSub('msub-verein')">Der Verein <span class="arr">▾</span></div>
+    <div class="mob-sub" id="msub-verein">
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('vorstandschaft')}else{location.href='/Schwimmverein_webseite/vorstandschaft';closeMobileMenu()}">Die Vorstandschaft</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('historie')}else{location.href='/Schwimmverein_webseite/historie';closeMobileMenu()}">Historie</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('termine')}else{location.href='/Schwimmverein_webseite/termine';closeMobileMenu()}">Termine</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('beitragsordnung')}else{location.href='/Schwimmverein_webseite/beitragsordnung';closeMobileMenu()}">Beitragsordnung</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('jugendordnung')}else{location.href='/Schwimmverein_webseite/jugendordnung';closeMobileMenu()}">Jugendordnung</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <div class="mob-top" onclick="toggleMobSub('msub-training')">Training <span class="arr">▾</span></div>
+    <div class="mob-sub" id="msub-training">
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('jugend')}else{location.href='/Schwimmverein_webseite/jugend';closeMobileMenu()}">Jugend</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('masters')}else{location.href='/Schwimmverein_webseite/masters';closeMobileMenu()}">Masters</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('trainingszeiten')}else{location.href='/Schwimmverein_webseite/trainingszeiten';closeMobileMenu()}">Trainingszeiten</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('trainer')}else{location.href='/Schwimmverein_webseite/trainer';closeMobileMenu()}">Unsere Trainer</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('trainingsstaetten')}else{location.href='/Schwimmverein_webseite/trainingsstaetten';closeMobileMenu()}">Trainingsstätten</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <div class="mob-top" onclick="toggleMobSub('msub-kurse')">Schwimmkurse <span class="arr">▾</span></div>
+    <div class="mob-sub" id="msub-kurse">
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('kurse')}else{location.href='/Schwimmverein_webseite/kurse';closeMobileMenu()}">Informationen</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('kurstrainer')}else{location.href='/Schwimmverein_webseite/kurstrainer';closeMobileMenu()}">Kurstrainer</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('einzelstunden')}else{location.href='/Schwimmverein_webseite/einzelstunden';closeMobileMenu()}">Einzelstunden</a>
+    </div>
+  </div>
+  <div class="mob-item"><div class="mob-top" onclick="if(typeof mobNav!=='undefined'){mobNav('wettkampf')}else{location.href='/Schwimmverein_webseite/wettkampf';closeMobileMenu()}">Wettkampf</div></div>
+  <div class="mob-item">
+    <div class="mob-top" onclick="toggleMobSub('msub-sonst')">Sonstiges <span class="arr">▾</span></div>
+    <div class="mob-sub" id="msub-sonst">
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('datenschutz')}else{location.href='/Schwimmverein_webseite/datenschutz';closeMobileMenu()}">Datenschutz</a>
+      <a onclick="if(typeof mobNav!=='undefined'){mobNav('impressum')}else{location.href='/Schwimmverein_webseite/impressum';closeMobileMenu()}">Impressum</a>
+      <a onclick="closeMobileMenu();if(typeof openAdminLogin!=='undefined')openAdminLogin()" style="color:rgba(255,255,255,.4);font-size:12px">⚙ Admin Panel</a>
+    </div>
+  </div>
+</div>
+
 <main>
   <slot />
 </main>
