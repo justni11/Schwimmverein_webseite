@@ -5,59 +5,6 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="SV Hockenheim e.V.">
 
-<!-- Mobile Drawer -->
-<div class="mobile-drawer" id="mobileDrawer">
-  <div class="mob-item"><div class="mob-top" onclick="mobNav('home')">Home</div></div>
-  <div class="mob-item">
-    <div class="mob-top" onclick="toggleMobSub('msub-news')">News <span class="arr">▾</span></div>
-    <div class="mob-sub" id="msub-news">
-      <a onclick="mobNav('news')">Alle Berichte</a>
-      <a onclick="mobArticle('dossenheim2026')">Dossenheim 2026</a>
-      <a onclick="mobArticle('hoggicup2026')">Hoggi Cup 2026</a>
-      <a onclick="mobArticle('heddesheim2026')">Heddesheim 2026</a>
-      <a onclick="mobArticle('bruehlmasters2026')">Masters Brühl 2026</a>
-      <a onclick="mobArticle('vereinsfeier2025')">Vereinsfeier 2025</a>
-      <a onclick="mobArticle('neptuncup2025')">Neptun Cup 2025</a>
-    </div>
-  </div>
-  <div class="mob-item">
-    <div class="mob-top" onclick="toggleMobSub('msub-verein')">Der Verein <span class="arr">▾</span></div>
-    <div class="mob-sub" id="msub-verein">
-      <a onclick="mobNav('vorstandschaft')">Die Vorstandschaft</a>
-      <a onclick="mobNav('historie')">Historie</a>
-      <a onclick="mobNav('termine')">Termine</a>
-      <a onclick="mobNav('beitragsordnung')">Beitragsordnung</a>
-      <a onclick="mobNav('jugendordnung')">Jugendordnung</a>
-    </div>
-  </div>
-  <div class="mob-item">
-    <div class="mob-top" onclick="toggleMobSub('msub-training')">Training <span class="arr">▾</span></div>
-    <div class="mob-sub" id="msub-training">
-      <a onclick="mobNav('jugend')">Jugend</a>
-      <a onclick="mobNav('masters')">Masters</a>
-      <a onclick="mobNav('trainingszeiten')">Trainingszeiten</a>
-      <a onclick="mobNav('trainer')">Unsere Trainer</a>
-      <a onclick="mobNav('trainingsstaetten')">Trainingsstätten</a>
-    </div>
-  </div>
-  <div class="mob-item">
-    <div class="mob-top" onclick="toggleMobSub('msub-kurse')">Schwimmkurse <span class="arr">▾</span></div>
-    <div class="mob-sub" id="msub-kurse">
-      <a onclick="mobNav('kurse')">Informationen</a>
-      <a onclick="mobNav('kurstrainer')">Kurstrainer</a>
-      <a onclick="mobNav('einzelstunden')">Einzelstunden</a>
-    </div>
-  </div>
-  <div class="mob-item"><div class="mob-top" onclick="mobNav('wettkampf')">Wettkampf</div></div>
-  <div class="mob-item">
-    <div class="mob-top" onclick="toggleMobSub('msub-sonst')">Sonstiges <span class="arr">▾</span></div>
-    <div class="mob-sub" id="msub-sonst">
-      <a onclick="mobNav('datenschutz')">Datenschutz</a>
-      <a onclick="mobNav('impressum')">Impressum</a>
-      <a onclick="closeMobileMenu();openAdminLogin()" style="color:rgba(255,255,255,.4);font-size:12px">⚙ Admin Panel</a>
-    </div>
-  </div>
-</div>
 
 <!-- ══════════════════════════════════════
      HOME
