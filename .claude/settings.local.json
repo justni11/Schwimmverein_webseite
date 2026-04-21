@@ -27,7 +27,14 @@
       "Bash(curl -s \"http://localhost:4323/Vereinswebseite/\")",
       "Bash(curl -s \"http://localhost:4323/Vereinswebseite/styles/global.css\")",
       "Bash(tr '>' '\\\\n')",
-      "Bash(gh pr:*)"
+      "Bash(gh pr:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://justni11.github.io/Schwimmverein_webseite/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://justni11.github.io/Vereinswebseite/\")",
+      "Bash(curl -s \"https://justni11.github.io/Schwimmverein_webseite/\")",
+      "Bash(curl -s \"https://justni11.github.io/Vereinswebseite/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://justni11.github.io/Schwimmverein_webseite/scripts/navigation.js\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://justni11.github.io/Schwimmverein_webseite/styles/global.css\")",
+      "Bash(curl -s \"https://justni11.github.io/Schwimmverein_webseite/scripts/navigation.js\")"
     ]
   }
 }
