@@ -24,6 +24,8 @@ function getSlideCount(){return ls('svh_slide_count',4);}
 
 function escH(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
+function initials(name){return String(name||'').trim().split(/\s+/).map(function(w){return w[0]||'';}).slice(0,2).join('').toUpperCase();}
+
 function buildNewsGrids(){
   var all=getCustomArticles().concat(builtinArticles);
   var hg=document.getElementById('homeNewsGrid'),ag=document.getElementById('allNewsGrid');
@@ -124,7 +126,7 @@ renderRekordePage();
   // ── Bestimme GitHub Repo ──
   // Priorität: 1. localStorage (vom Admin gesetzt), 2. eingebettete Defaults
   var ghUser=localStorage.getItem('svh_gh_user')||'justni11';
-  var ghRepo=localStorage.getItem('svh_gh_repo')||'Vereinswebseite';
+  var ghRepo=localStorage.getItem('svh_gh_repo')||'Schwimmverein_webseite';
 
   // ── Lokale Bilder aus localStorage ──
   var localHeroBg=ls('svh_hero_bg',null);

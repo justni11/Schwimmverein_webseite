@@ -1,6 +1,7 @@
 var adminImgData=null;
 var adminImgFile=null;
 var panelIds=['apanel-articles','apanel-add','apanel-bilder','apanel-folders','apanel-pages','apanel-rekorde','apanel-info'];
+var tabKeys=['articles','add','bilder','folders','pages','rekorde','info'];
 var extraImgFiles=[];
 var extraImgDatas=[];
 var cropState={file:null,callback:null,canvas:null,selCanvas:null,ctx:null,selCtx:null,imgEl:null,scale:1,dragging:false,startX:0,startY:0,sel:{x:0,y:0,w:0,h:0}};
@@ -157,8 +158,8 @@ async function publishArticle(){
     for(var i=0;i<customs.length;i++){
       if(customs[i].id===editId){
         customs[i].title=title;customs[i].teaser=teaser;
-        customs[i].full=buildArticleHtml(content,finalExtraImgs)||fullHtml;
-        customs[i].extraImgs=finalExtraImgs;
+        customs[i].full=buildArticleHtml(content,extraImgDatas)||fullHtml;
+        customs[i].extraImgs=extraImgDatas.slice();
         customs[i].date=dateStr;customs[i].folder=folder;
         if(adminImgData)customs[i].imgData=adminImgData;break;
       }
@@ -668,5 +669,156 @@ function initGithubUI(){
   // Don't prefill token field for security – just show masked hint
   if(t&&s.token)t.placeholder='••••••••••••••••••••• (gespeichert)';
   if(s.user&&s.repo&&s.token)setGhStatus('ok','✓ GitHub verbunden: '+s.user+'/'+s.repo);
+}
+
+// ── Seiten-Editor ──
+function loadPageEditor(key){
+  var pg=null;
+  for(var i=0;i<editablePages.length;i++){if(editablePages[i].key===key){pg=editablePages[i];break;}}
+  if(!pg)return;
+  var cont=document.getElementById('pageEditorContent');if(!cont)return;
+  var val=getPageContent(key);
+  // Highlight selected menu item
+  var menu=document.getElementById('pageEditorMenu');
+  if(menu)menu.querySelectorAll('div').forEach(function(d){d.style.background='';d.style.color='var(--text2)';});
+
+  if(pg.field==='textarea'){
+    var text=val||'';
+    cont.innerHTML='<h4 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:14px">'+escH(pg.label)+'</h4>'
+      +'<textarea id="page-edit-area" style="width:100%;min-height:280px;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:14px;font-family:Inter,sans-serif;padding:12px 14px;resize:vertical;box-sizing:border-box;line-height:1.7">'+escH(text)+'</textarea>'
+      +'<div style="margin-top:14px;display:flex;gap:10px">'
+      +'<button class="btn-primary" style="font-size:13px;padding:9px 20px" onclick="savePage(\''+key+'\')">💾 Speichern</button>'
+      +'</div>'
+      +'<p style="font-size:12px;color:var(--text2);margin-top:10px">Absätze mit einer Leerzeile trennen.</p>';
+  } else if(pg.field==='beitrag'){
+    var rows=val||[];
+    var rowHtml='';
+    for(var j=0;j<rows.length;j++){
+      rowHtml+='<tr>'
+        +'<td style="padding:4px"><input type="text" value="'+escH(rows[j][0])+'" style="width:100%;padding:6px 10px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif"/></td>'
+        +'<td style="padding:4px"><input type="text" value="'+escH(rows[j][1])+'" style="width:100%;padding:6px 10px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif"/></td>'
+        +'<td style="padding:4px;text-align:center"><button onclick="this.closest(\'tr\').remove()" style="color:#f87171;background:none;border:none;cursor:pointer;font-size:16px">🗑</button></td>'
+        +'</tr>';
+    }
+    cont.innerHTML='<h4 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:14px">'+escH(pg.label)+'</h4>'
+      +'<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">'
+      +'<thead><tr style="background:var(--card2)"><th style="padding:8px;text-align:left;border-bottom:1px solid var(--border);color:var(--text2)">Kategorie</th><th style="padding:8px;text-align:left;border-bottom:1px solid var(--border);color:var(--text2)">Betrag (€)</th><th style="width:40px"></th></tr></thead>'
+      +'<tbody id="beitrag-edit-body">'+rowHtml+'</tbody></table></div>'
+      +'<div style="margin-top:14px;display:flex;gap:10px">'
+      +'<button onclick="beitragAddRow()" style="background:rgba(30,111,255,.12);border:1px solid var(--border);color:var(--blue2);padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Zeile hinzufügen</button>'
+      +'<button class="btn-primary" style="font-size:13px;padding:9px 20px" onclick="saveBeitrag()">💾 Speichern</button>'
+      +'</div>';
+  } else if(pg.field==='termine'){
+    var termine=val||[];
+    var termHtml='';
+    for(var k=0;k<termine.length;k++){
+      var t=termine[k];
+      termHtml+=termRowHtml(t.day||'',t.mon||'',t.title||'',t.desc||'');
+    }
+    cont.innerHTML='<h4 style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:14px">'+escH(pg.label)+'</h4>'
+      +'<div id="termine-edit-body">'+termHtml+'</div>'
+      +'<div style="margin-top:14px;display:flex;gap:10px">'
+      +'<button onclick="termineAddRow()" style="background:rgba(30,111,255,.12);border:1px solid var(--border);color:var(--blue2);padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Termin hinzufügen</button>'
+      +'<button class="btn-primary" style="font-size:13px;padding:9px 20px" onclick="saveTermine()">💾 Speichern</button>'
+      +'</div>';
+  }
+}
+
+function termRowHtml(day,mon,title,desc){
+  return '<div style="display:grid;grid-template-columns:60px 60px 1fr 1fr 32px;gap:8px;align-items:center;margin-bottom:8px;background:var(--card2);padding:10px;border-radius:10px;border:1px solid var(--border)">'
+    +'<input type="text" value="'+escH(day)+'" placeholder="Tag" style="padding:6px 8px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box"/>'
+    +'<input type="text" value="'+escH(mon)+'" placeholder="Mon" style="padding:6px 8px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box"/>'
+    +'<input type="text" value="'+escH(title)+'" placeholder="Titel" style="padding:6px 8px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box"/>'
+    +'<input type="text" value="'+escH(desc)+'" placeholder="Beschreibung" style="padding:6px 8px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box"/>'
+    +'<button onclick="this.parentNode.remove()" style="color:#f87171;background:none;border:none;cursor:pointer;font-size:18px;line-height:1">🗑</button>'
+    +'</div>';
+}
+
+function termineAddRow(){
+  var body=document.getElementById('termine-edit-body');if(!body)return;
+  var div=document.createElement('div');
+  div.innerHTML=termRowHtml('','','','');
+  body.appendChild(div.firstChild);
+}
+
+function saveTermine(){
+  var body=document.getElementById('termine-edit-body');if(!body)return;
+  var rows=[];
+  body.querySelectorAll('div').forEach(function(row){
+    var inputs=row.querySelectorAll('input');
+    if(inputs.length>=4&&(inputs[0].value||inputs[2].value))
+      rows.push({day:inputs[0].value,mon:inputs[1].value,title:inputs[2].value,desc:inputs[3].value});
+  });
+  savePageContent('termine-liste',rows);
+  applyTermine(rows);
+  alert('Termine gespeichert!');
+}
+
+function beitragAddRow(){
+  var tbody=document.getElementById('beitrag-edit-body');if(!tbody)return;
+  var tr=document.createElement('tr');
+  tr.innerHTML='<td style="padding:4px"><input type="text" placeholder="Kategorie" style="width:100%;padding:6px 10px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif"/></td>'
+    +'<td style="padding:4px"><input type="text" placeholder="Betrag" style="width:100%;padding:6px 10px;background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-family:Inter,sans-serif"/></td>'
+    +'<td style="padding:4px;text-align:center"><button onclick="this.closest(\'tr\').remove()" style="color:#f87171;background:none;border:none;cursor:pointer;font-size:16px">🗑</button></td>';
+  tbody.appendChild(tr);
+}
+
+function saveBeitrag(){
+  var tbody=document.getElementById('beitrag-edit-body');if(!tbody)return;
+  var rows=[];
+  tbody.querySelectorAll('tr').forEach(function(tr){
+    var inputs=tr.querySelectorAll('input');
+    if(inputs.length>=2&&inputs[0].value)rows.push([inputs[0].value,inputs[1].value]);
+  });
+  savePageContent('beitrag-tabelle',rows);
+  applyBeitrag(rows);
+  alert('Beitragsordnung gespeichert!');
+}
+
+// ── Slide Management ──
+function adminAddSlide(){
+  var count=getSlideCount();
+  if(count>=8){alert('Maximum 8 Slides.');return;}
+  var newCount=count+1;
+  lsSet('svh_slide_count',newCount);
+  totalSlides=newCount;
+  var track=document.getElementById('heroSlider');
+  if(track){
+    var lblData=ls('svh_slide_labels',null)||[];
+    var lbl=lblData[count]||{title:'Slide '+(count+1),sub:''};
+    var sl=document.createElement('div');
+    sl.className='carousel-slide';sl.id='hs'+count;
+    sl.innerHTML='<div class="carousel-slide-label"><h2>'+escH(lbl.title)+'</h2><p>'+escH(lbl.sub)+'</p></div>';
+    track.appendChild(sl);
+  }
+  var dots=document.getElementById('sDots');
+  if(dots){
+    var dot=document.createElement('button');
+    dot.className='c-dot';
+    dot.setAttribute('onclick','goSlide('+count+')');
+    dots.appendChild(dot);
+  }
+  renderBilderTab();
+}
+
+function adminRemoveSlide(){
+  var count=getSlideCount();
+  if(count<=1){alert('Mindestens 1 Slide erforderlich.');return;}
+  var newCount=count-1;
+  lsSet('svh_slide_count',newCount);
+  totalSlides=newCount;
+  var last=document.getElementById('hs'+newCount);if(last)last.remove();
+  var dots=document.getElementById('sDots');
+  if(dots&&dots.lastChild)dots.lastChild.remove();
+  var imgs=ls('svh_slide_imgs',{});delete imgs[newCount];lsSet('svh_slide_imgs',imgs);
+  if(curSlide>=newCount)goSlide(0);
+  renderBilderTab();
+}
+
+function adminRemoveSlideImg(idx){
+  var imgs=ls('svh_slide_imgs',{});delete imgs[idx];lsSet('svh_slide_imgs',imgs);
+  var sl=document.getElementById('hs'+idx);
+  if(sl){var si=sl.querySelector('img.slide-img-bg');if(si)si.remove();}
+  renderBilderTab();
 }
 
